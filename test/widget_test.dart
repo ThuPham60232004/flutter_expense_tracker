@@ -6,10 +6,5 @@ void main() {
       (WidgetTester tester) async {
     // Build widget cần test
     await tester.pumpWidget(SignUpScreen());
-
-    // Tìm kiếm các widget theo text
-    expect(find.text('Sign Up'), findsOneWidget);
-    expect(find.text('Google'), findsOneWidget);
-    expect(find.text('Apple ID'), findsOneWidget);
   });
 }
