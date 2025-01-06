@@ -89,7 +89,7 @@ jobs:
 #     name: Run UI tests with Firebase Test Lab
 #     needs: build-android
 #     runs-on: ubuntu-22.04
-#     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+#     if: github.ref == 'refs/heads/master/production' && github.event_name == 'push'
 #     permissions:
 #       contents: 'read'
 #       id-token: 'write'
