@@ -31,5 +31,9 @@ void main() {
 
     // Kiểm tra Monthly Budget Section
     expect(find.byType(ElevatedButton), findsNWidgets(2));
+
+    // Kiểm tra images inside Statistics Header
+    expect(find.byWidgetPredicate((widget) => widget is Image && widget.width == 150 && widget.height == 150), findsNWidgets(2));
+
   });
 }
