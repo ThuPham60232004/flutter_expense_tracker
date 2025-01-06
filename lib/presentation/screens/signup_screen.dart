@@ -11,8 +11,7 @@ class SignUpScreen extends StatelessWidget {
       TextEditingController();
   final AuthRepository authRepository = AuthRepository();
 
-  SignUpScreen({Key? key}) : super(key: key);
-
+  SignUpScreen({super.key});
   void _signUp(BuildContext context) async {
     final email = emailController.text;
     final password = passwordController.text;
