@@ -3,7 +3,8 @@ name: Flutter CI
 on:
   push:
     branches:
-      - master/production
+      - develop 
+      - feature/#1_set_up_ci
 jobs:
   test:
 #B1: Test and analyze
