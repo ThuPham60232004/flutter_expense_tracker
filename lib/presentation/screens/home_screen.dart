@@ -10,15 +10,22 @@ import 'package:flutter_expense_tracker/core/themes/primary_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   double _scrollOffset = 0.0;
+
   @override
   Widget build(BuildContext context) {
     final inheritedTheme = AppInheritedTheme.of(context);
+    if (inheritedTheme == null) {
+      return Scaffold(
+        body: Center(child: Text('Theme data not found')),
+      );
+    }
     return Scaffold(
       appBar: CustomAppBar(
         themeMode: inheritedTheme!.themeMode,
@@ -61,64 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildBlogRecent() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(height: 50),
-          Text(
-            'Các mẹo tài chính gần đây',
-            style: PrimaryText.primaryTextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Image.network(
-            'https://th.bing.com/th/id/R.c8af6e458bda691fd1dbc873590d49a7?rik=EGwMW5QcqbjB8w&pid=ImgRaw&r=0',
-            width: double.infinity,
-            height: 300,
-            fit: BoxFit.cover,
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            child: const Text(
-              'Tiết kiệm thông minh',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Row(
-            children: const [
-              Text(
-                '20 Tháng Giêng, 2023 *',
-                style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey),
-              ),
-              Text(
-                'Bởi Chuyên gia tài chính',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const Text(
-            'Học các thực tiễn tốt nhất cho việc tiết kiệm tiền hiệu quả và quản lý chi tiêu thông minh. Lời khuyên thực tế cho các tình huống tài chính thực tế.',
-            style: TextStyle(fontSize: 14),
-          ),
-          const SizedBox(height: 40),
-        ],
       ),
     );
   }
@@ -347,12 +296,71 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+  Widget _buildBlogRecent() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 50),
+          Text(
+            'Các mẹo tài chính gần đây',
+            style: PrimaryText.primaryTextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Image.network(
+            'https://th.bing.com/th/id/R.c8af6e458bda691fd1dbc873590d49a7?rik=EGwMW5QcqbjB8w&pid=ImgRaw&r=0',
+            width: double.infinity,
+            height: 300,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            child: const Text(
+              'Tiết kiệm thông minh',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Row(
+            children: const [
+              Text(
+                '20 Tháng Giêng, 2023 *',
+                style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey),
+              ),
+              Text(
+                'Bởi Chuyên gia tài chính',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const Text(
+            'Học các thực tiễn tốt nhất cho việc tiết kiệm tiền hiệu quả và quản lý chi tiêu thông minh. Lời khuyên thực tế cho các tình huống tài chính thực tế.',
+            style: TextStyle(fontSize: 14),
+          ),
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
+  }
 }
 
 class FadeItem extends StatelessWidget {
   final String title;
   final double scrollOffset;
   final double threshold;
+  
   const FadeItem({
     required this.title,
     required this.scrollOffset,
@@ -381,7 +389,7 @@ class FadeItem extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            if (title == '01\nTrack Income' || title == '02\nSet Budgets')
+            if (title == '01\nTheo dõi thu nhập' || title == '02\nĐặt ngân sách')
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 2.0),
                 child: SizedBox(
@@ -389,7 +397,7 @@ class FadeItem extends StatelessWidget {
                   height: 103,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 33, 236, 243),
+                      color: Color.fromARGB(255, 89, 148, 185),
                     ),
                   ),
                 ),
