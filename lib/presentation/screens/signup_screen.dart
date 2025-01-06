@@ -12,6 +12,7 @@ class SignUpScreen extends StatelessWidget {
   final AuthRepository authRepository = AuthRepository();
 
   SignUpScreen({super.key});
+
   void _signUp(BuildContext context) async {
     final email = emailController.text;
     final password = passwordController.text;
@@ -42,9 +43,15 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inheritedTheme = AppInheritedTheme.of(context);
+    if (inheritedTheme == null) {
+      return const Scaffold(
+        body: Center(child: Text('Theme data is not available')),
+      );
+    }
+
     return Scaffold(
       appBar: CustomAppBar(
-        themeMode: inheritedTheme!.themeMode,
+        themeMode: inheritedTheme.themeMode,
         toggleTheme: inheritedTheme.toggleTheme,
       ),
       body: Center(
