@@ -6,7 +6,8 @@ import 'package:flutter_expense_tracker/core/widgets/widget_search.dart';
 import 'package:flutter_expense_tracker/core/widgets/widget_banner.dart';
 
 void main() {
-  testWidgets('HomeScreen should display all widgets correctly', (WidgetTester tester) async {
+  testWidgets('HomeScreen should display all widgets correctly',
+      (WidgetTester tester) async {
     // Build the widget tree
     await tester.pumpWidget(MaterialApp(home: HomeScreen()));
 
@@ -33,7 +34,8 @@ void main() {
 
     // Kiểm tra hình ảnh trong Statistics Header
     expect(
-        find.byWidgetPredicate((widget) => widget is Image && widget.width == 150 && widget.height == 150),
+        find.byWidgetPredicate((widget) =>
+            widget is Image && widget.width == 150 && widget.height == 150),
         findsNWidgets(2));
   });
 }
