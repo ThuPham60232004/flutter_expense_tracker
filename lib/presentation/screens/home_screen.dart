@@ -68,22 +68,22 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildHeader() {
-  return const Padding(
-    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-         Expanded(
-          child: Text(
-            'Khái quát chi tiêu của bạn',
-            style: TextStyle(fontSize: 18),
-            textAlign: TextAlign.left,
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Text(
+              'Khái quát chi tiêu của bạn',
+              style: TextStyle(fontSize: 18),
+              textAlign: TextAlign.left,
+            ),
           ),
-        ),
-      ],
-    ),
-  );
-}
+        ],
+      ),
+    );
+  }
 
   Widget _buildStatisticsHeader() {
     return Padding(
@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildStatisticsDecoration() {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children:[
+      children: [
         SizedBox(
           width: 50,
           height: 2,
@@ -213,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           const Text(
+            const Text(
               'Quản lý ngân sách của bạn',
               style: const TextStyle(
                 fontSize: 28,
@@ -223,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
-           const Text(
+            const Text(
               'Theo dõi từng đồng tiền',
               style: TextStyle(
                 fontSize: 20,
@@ -294,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildBlogRecent() {
     return Padding(
-      padding:const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -322,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-        const  Row(
+          const Row(
             children: const [
               Text(
                 '20 Tháng Giêng, 2023 *',
