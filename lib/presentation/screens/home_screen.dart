@@ -360,7 +360,7 @@ class FadeItem extends StatelessWidget {
   final String title;
   final double scrollOffset;
   final double threshold;
-  
+
   const FadeItem({
     required this.title,
     required this.scrollOffset,
@@ -389,7 +389,8 @@ class FadeItem extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            if (title == '01\nTheo dõi thu nhập' || title == '02\nĐặt ngân sách')
+            if (title == '01\nTheo dõi thu nhập' ||
+                title == '02\nĐặt ngân sách')
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 2.0),
                 child: SizedBox(
