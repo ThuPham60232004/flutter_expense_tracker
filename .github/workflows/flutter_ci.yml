@@ -33,18 +33,18 @@ jobs:
 #B1_5: Verify formatting
       - name: Verify formatting
         run: dart format --output=none --set-exit-if-changed .
-# #B1_6: Run tests
-#       - name: Run tests
-#         run: flutter test --coverage
-# #B1_7: Upload coverage to Codecov
-#       - name: Upload coverage to Codecov
-#         uses: codecov/codecov-action@v4
-#         with:
-#           token: ${{ secrets.CODECOV_TOKEN }}
+#B1_6: Run tests
+      - name: Run tests
+        run: flutter test --coverage
+#B1_7: Upload coverage to Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
-#       - name: Notify Slack - Test
-#         run: |
-#           curl -X POST -H 'Content-type: application/json' --data '{"text":"Build completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Notify Slack - Test
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Build completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
 
 #B2: Build Android App
   build-android:
@@ -79,8 +79,8 @@ jobs:
         with:
           name: app-debug
           path: build/app/outputs/flutter-apk/app-debug.apk
-# #B2_6: Notify Slack - Build Completed
-#       - name: Notify Slack - Build Completed
-#         run: |
-#           curl -X POST -H 'Content-type: application/json' --data '{"text":"Build completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+#B2_6: Notify Slack - Build Completed
+      - name: Notify Slack - Build Completed
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Build completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
      
