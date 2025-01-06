@@ -4,7 +4,8 @@ import 'package:flutter_expense_tracker/presentation/screens/profile_screen.dart
 
 void main() {
   group('ProfileScreen Widget Tests', () {
-    testWidgets('Kiểm tra hiển thị tiêu đề và thông tin cá nhân', (WidgetTester tester) async {
+    testWidgets('Kiểm tra hiển thị tiêu đề và thông tin cá nhân',
+        (WidgetTester tester) async {
       // Render ProfileScreen
       await tester.pumpWidget(
         const MaterialApp(
@@ -32,7 +33,8 @@ void main() {
       expect(find.text('Chỉnh sửa'), findsNWidgets(4));
     });
 
-    testWidgets('Kiểm tra nút chỉnh sửa hoạt động', (WidgetTester tester) async {
+    testWidgets('Kiểm tra nút chỉnh sửa hoạt động',
+        (WidgetTester tester) async {
       // Render ProfileScreen
       await tester.pumpWidget(
         const MaterialApp(
