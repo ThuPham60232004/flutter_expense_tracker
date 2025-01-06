@@ -5,7 +5,7 @@ void main() {
   testWidgets('Kiểm tra hiển thị màn hình đăng ký',
       (WidgetTester tester) async {
     // Build widget cần test
-    await tester.pumpWidget(const SignUpScreen());
+    await tester.pumpWidget(SignUpScreen());
 
     // Tìm kiếm các widget theo text
     expect(find.text('Sign Up'), findsOneWidget);

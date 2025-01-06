@@ -15,7 +15,7 @@ class AppRoutes {
   static final routes = <String, WidgetBuilder>{
     RouteNames.home: (context) => const HomeScreen(),
     RouteNames.login: (context) => const LoginScreen(),
-    RouteNames.signup: (context) => const SignUpScreen(),
+    RouteNames.signup: (context) => SignUpScreen(),
     RouteNames.profile: (context) => const ProfileScreen(),
     RouteNames.contact: (context) => const ContactScreen(),
     RouteNames.entercodescreen: (context) => const EnterCodeScreen(),
