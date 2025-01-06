@@ -4,7 +4,7 @@ import 'package:flutter_expense_tracker/core/widgets/widget_drawer.dart';
 import 'package:flutter_expense_tracker/core/widgets/widget_footer.dart';
 import 'package:flutter_expense_tracker/app.dart';
 import 'package:flutter_expense_tracker/core/widgets/widget_search.dart';
-import 'package:flutter_expense_tracker/core/widgets/widgte_banner.dart';
+import 'package:flutter_expense_tracker/core/widgets/widget_banner.dart';
 import 'package:flutter_expense_tracker/core/themes/primary_text.dart';
 import 'package:flutter_expense_tracker/core/themes/primary_theme.dart';
 

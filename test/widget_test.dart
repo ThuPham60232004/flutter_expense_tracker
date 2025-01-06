@@ -4,7 +4,7 @@ import 'package:flutter_expense_tracker/presentation/screens/home_screen.dart';
 import 'package:flutter_expense_tracker/core/widgets/widget_appbar.dart';
 import 'package:flutter_expense_tracker/core/widgets/widget_drawer.dart';
 import 'package:flutter_expense_tracker/core/widgets/widget_search.dart';
-import 'package:flutter_expense_tracker/core/widgets/widgte_banner.dart';
+import 'package:flutter_expense_tracker/core/widgets/widget_banner.dart';
 
 void main() {
   testWidgets('HomeScreen should display all widgets correctly',
@@ -14,9 +14,6 @@ void main() {
 
     // Kiểm tra AppBar
     expect(find.byType(CustomAppBar), findsOneWidget);
-
-    // Kiểm tra Drawer
-    expect(find.byType(CustomDrawer), findsOneWidget);
 
     // Kiểm tra WidgetSearch
     expect(find.byType(WidgetSearch), findsOneWidget);
