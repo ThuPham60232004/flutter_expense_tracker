@@ -83,20 +83,19 @@ jobs:
       - name: Notify Slack - Build Completed
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{"text":"Build completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
-     
 #B3:Run UI tests with Firebase Test Lab
   firebase-test-lab:
     name: Run UI tests with Firebase Test Lab
     needs: build-android
     runs-on: ubuntu-22.04
-    if: github.ref == 'refs/heads/master/production' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     permissions:
       contents: 'read'
       id-token: 'write'
 
     steps:
       - uses: actions/checkout@v4
-#B3_1:Download app APK
+  #B3_1:Download app APK
       - name: Download app APK
         uses: actions/download-artifact@v4
         with:
@@ -111,7 +110,7 @@ jobs:
 #B3_3:Set up Cloud SDK
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
-#B3_4:Install beta components
+  #B3_4:Install beta components
       - name: Install beta components
         run: |
           gcloud components install beta --quiet
@@ -123,7 +122,7 @@ jobs:
 #B3_5:Run tests in Firebase Test Lab
       - name: Run tests in Firebase Test Lab
         run: |
-          BUCKET_NAME="testflutter"
+          BUCKET_NAME=" testflutter"
           TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
           gcloud firebase test android run \
             --type robo \
@@ -137,5 +136,59 @@ jobs:
 #B3_6: Notify Slack - Tests Completed
       - name: Notify Slack - Tests Completed
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"UI tests in Firebase Test Lab completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"UI tests in Firebase Test Lab completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}  
+# #B3:Run UI tests with Firebase Test Lab
+#   firebase-test-lab:
+#     name: Run UI tests with Firebase Test Lab
+#     needs: build-android
+#     runs-on: ubuntu-22.04
+#     if: github.ref == 'refs/heads/master/production' && github.event_name == 'push'
+#     permissions:
+#       contents: 'read'
+#       id-token: 'write'
+
+#     steps:
+#       - uses: actions/checkout@v4
+# #B3_1:Download app APK
+#       - name: Download app APK
+#         uses: actions/download-artifact@v4
+#         with:
+#           name: app-debug
+#           path: app-debug
+# #B3_2:Authenticate to Google Cloud
+#       - id: 'auth'
+#         name: 'Authenticate to Google Cloud'
+#         uses: 'google-github-actions/auth@v2'
+#         with:
+#           credentials_json: '${{ secrets.GCLOUD_AUTH }}'
+# #B3_3:Set up Cloud SDK
+#       - name: 'Set up Cloud SDK'
+#         uses: 'google-github-actions/setup-gcloud@v2'
+# #B3_4:Install beta components
+#       - name: Install beta components
+#         run: |
+#           gcloud components install beta --quiet
+#           gcloud components update --quiet
+
+#           - name: Notify Slack - Run tests in Firebase Test Lab
+#           run: |
+#             curl -X POST -H 'Content-type: application/json' --data '{"text":"Run tests in Firebase Test Lab"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+# #B3_5:Run tests in Firebase Test Lab
+#       - name: Run tests in Firebase Test Lab
+#         run: |
+#           BUCKET_NAME="testflutter"
+#           TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+#           gcloud firebase test android run \
+#             --type robo \
+#             --app app-debug/app-debug.apk \
+#             --device model=Pixel2,version=28,locale=en \
+#             --timeout 300s \
+#             --results-bucket=gs://$BUCKET_NAME \
+#             --results-dir=results-$TIMESTAMP \
+#             --robo-directives=text:emailTextField=eve.holt@reqres.in,text:passwordTextField=pistol \
+#             --quiet
+# #B3_6: Notify Slack - Tests Completed
+#       - name: Notify Slack - Tests Completed
+#         run: |
+#           curl -X POST -H 'Content-type: application/json' --data '{"text":"UI tests in Firebase Test Lab completed successfully!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
 
